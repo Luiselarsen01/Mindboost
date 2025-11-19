@@ -1,0 +1,639 @@
+:root {
+  --bg: #F5F5F7;           /* Lys neutral */
+  --text: #1A1A1F;         /* Mørk, høj kontrast */
+  --accent: #B85A3F;       /* Varme, men mørkere for bedre kontrast */
+  --button: #2D3C59;       /* God kontrast */
+  --soft-bg: #E8EEF2;      /* Rolig baggrund */
+  --bg-l: linear-gradient(175deg, #c0dfeb 0%, #E8EEF2 100%);
+--bg-l2: linear-gradient(175deg, #2D3C59 0%, #E8EEF2 100%);
+--bg-l3: linear-gradient(175deg, #DCE7EA 0%, #C1D3D8 100%);
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family:  'Inter', sans-serif;
+    line-height: 1.7;
+    font-size: 18px;
+}
+
+/* Overskrifter */
+h1, h2, h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+h1 { font-size: 32px; }
+h2 { font-size: 26px; }
+p { font-size: 19px; }
+
+
+
+button {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 0.5em 1em;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: var(--text);
+}
+
+
+:focus {
+    outline: 3px solid #005fcc;
+    outline-offset: 3px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+  
+
+
+
+
+
+/* Utility: skjul for skærmlæsere men behold synligt for JS */
+.visually-hidden {
+  position: absolute !important;
+  height: 1px; width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
+
+/* Små forbedringer */
+.primary-nav a:focus { outline: 3px solid rgba(0,95,204,0.15); outline-offset: 2px; }
+
+
+
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #000;
+    color: var(--bg);
+    padding: 8px 16px;
+    z-index: 1000;
+
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+
+.logo { height: 250px; } /* Størrelse på logo */
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+
+.back-btn {
+    position: absolute;
+    left: 20px;
+    top: 22px;
+    text-decoration: none;
+  color: var(--text);
+    font-size: 20px;
+}
+
+.header h1 {
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+
+
+
+
+
+/* Sprogknapper 
+.language-switch {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.lang-btn {
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+.lang-btn:hover { transform: scale(1.15); }*/
+
+/* HVORFOR VÆLGE OS */
+
+
+
+/* WHY-US SEKTION MED SKRÅ BAGGRUND OG BAGGRUNDSBILLEDE */
+.why-us {
+  position: relative;
+  overflow: hidden;
+  color: var(--soft-bg);
+  text-align: center;
+  margin: 0;
+  padding: 20px 12px;
+  background: url("../img/about-bg.jpg") center/cover no-repeat; /* ← skift til dit eget billede */
+}
+
+/* Overlay med skrå streg (den lyserøde “vinkel”) */
+.why-us::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 75%;
+  background: linear-gradient(175deg, #FFD6C5 0%, #FFEAE1 100%); /* Juster farver efter stil */
+  transform-origin: bottom left;
+  transform: skewY(-6deg);
+  z-index: 1;
+}
+
+/* Tekstlag ovenpå */
+.why-us-overlay {
+  position: relative;
+  z-index: 2;
+  margin: 0 auto;
+  backdrop-filter: blur(3px);
+  padding: 10px 14px;
+
+}
+
+.why-us h2 {
+   color: var(--soft-bg);
+  font-size: 38px;
+  margin-bottom: 14px;
+}
+
+.why-us h3 {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--soft-bg);
+}
+
+.why-us h4 {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--main-color);
+}
+
+
+/* HERO */
+.about-hero {
+    background: url("../img/bg1.jpg") center/cover no-repeat;
+    padding: 110px 30px;
+    position: relative;
+    text-align: center;
+  color: var(--bg);
+}
+
+.about-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.2);
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2));
+    z-index: 1;
+}
+
+.hero-content { position: relative; z-index: 2; }
+
+.hero-overlay {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-overlay h2 {
+    font-size: 39px;
+    margin-bottom: 10px;
+}
+
+.hero-overlay p {
+    font-size: 22px;
+    max-width: 600px;
+    margin: auto;
+}
+
+/* SEKTIONER */
+.about-section
+{
+  background-color: var(--bg-l3);
+}
+
+.about-section,
+.vision {
+  font-size: 18px;
+    padding: 80px 30px;
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+    
+}
+
+.about-section p,
+.vision p {
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 16px;
+   }
+
+/* MISSION */
+.mission {
+    background: var(--bg-l);
+    padding: 70px 30px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.mission-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.mission-card {
+    background: var(--soft-bg);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.mission-card h3 {
+    margin-bottom: 10px;
+  color: var(--text);
+}
+
+
+/* Øvelses sektion */
+.exercise.intro {
+    background: var(--bg-l);
+    padding: 70px 30px;
+    text-align: center;
+    font-size: 18px;
+}
+.exercise-section {
+    padding: 60px 30px;
+    max-width: 1100px;
+    margin: auto;
+    text-align: center;
+  color: var(--text);
+}
+
+.exercise-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+    margin-top: 25px;
+
+}
+
+.exercise-card {
+  color: var(--text);
+    padding: 30px;
+    border-radius: 35px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    text-align: center;
+    transition: 0.2s;
+    background-color: var(--bg);
+}
+
+.exercise-card:hover {
+    transform: translateY(-2px);
+}
+
+
+.contact-help,
+.contact-form-section {
+    padding: 50px 20px;
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+      font-size: 18px;
+       font-family: 'Nunito', sans-serif;
+    line-height: 1.6;
+}
+
+.contact-box {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 25px;
+    font-size: 20px;
+ 
+
+}
+@media (max-width: 600px) {
+    .contact-box {
+        grid-template-columns: 1fr;
+    }
+}
+.contact-item {
+    background: #F7F7F7;
+   color: #2D3C59;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    text-align: left;
+}
+
+.contact-item a {
+    color: #204473;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.contact-form {
+    display: flex;
+    font-size: 20px;
+    flex-direction: column;
+    gap: 18px;
+    background: var(--soft-bg);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 18px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.contact-btn {
+  background: #204473;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    }
+
+button, .contact-btn {
+    padding: 14px 20px;
+    border-radius: 20px;
+    background: var(--button);
+    font-size: 18px;
+    color: var(--soft-bg);
+    border: none;
+    cursor: pointer;       
+    transition: background 0.3s, transform 0.2s;
+
+  
+}
+
+button:focus,
+.contact-btn:focus {
+    outline: 3px solid #005FCC;
+    outline-offset: 3px;
+}
+
+.contact-btn:hover {
+    background: var(--text);
+    transform: translateY(-2px);
+       background: #2D3C59;
+}
+
+/* QUOTE */
+.quote-block {
+    padding: 70px 30px;
+    text-align: center;
+    background: var(--button);
+   color: var(--soft-bg);
+    font-size: 22px;
+}
+/* FOOTER */
+.footer {
+    text-align: center;
+    padding: 10px;
+    margin-top: 10px;
+    background: var(--main-bg);
+  color: var(--soft-bg);
+}
+
+.footer .logo {
+    height: 200px;
+    margin-bottom: 10px;
+}
+
+
+/* HEADER */
+.site-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 20px 30px;
+background-color: var(--bg);
+box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+position: sticky;
+top: 0;
+z-index: 999;
+}
+
+/* Logo */
+.logo-area {
+display: flex;
+align-items: center;
+gap: 12px;
+text-decoration: none;
+color: var(--text);
+}
+
+.logo-area img {
+height: 50px;
+width: auto;
+}
+
+.logo-area span {
+font-family: 'Poppins', sans-serif;
+font-weight: 700;
+font-size: 1.5rem;
+}
+
+/* Sprogknapper inde i logo (kan placeres til højre, hvis ønsket) */
+.logo-area li {
+display: inline-block;
+margin-left: 10px;
+}
+
+.lang-item {
+background: transparent;
+border: 1px solid var(--accent);
+padding: 5px 10px;
+border-radius: 6px;
+cursor: pointer;
+transition: all 0.3s;
+font-size: 0.9rem;
+}
+
+.lang-item:hover {
+background: var(--accent);
+color: var(--soft-bg);
+}
+
+/* NAVIGATION */
+.primary-nav ul {
+list-style: none;
+display: flex;
+gap: 25px;
+}
+
+.primary-nav a {
+text-decoration: none;
+color: var(--text);
+font-weight: 500;
+padding: 8px 12px;
+border-radius: 6px;
+transition: background 0.3s, color 0.3s;
+}
+
+.primary-nav a:hover,
+.primary-nav a:focus {
+background: var(--accent);
+color: var(--soft-bg);
+}
+
+/* RESPONSIVE MENU - mobil */
+@media (max-width: 768px) {
+.site-header {
+flex-direction: column;
+align-items: flex-start;
+gap: 10px;
+}
+
+.primary-nav ul {
+    flex-direction: column;
+    width: 100%;
+}
+
+.primary-nav a {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 12px 0;
+}
+.nav-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 8px;           
+
+}
+.nav-toggle span {
+    display: block;
+    width: 24px;
+    height: 3px;
+    background: var(--text);
+    border-radius: 3px;
+    transition: all 0.3s;
+}
+
+.primary-nav {
+    display: none;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.primary-nav.open {
+    display: block;
+}
+}
+/* Ændring af burger-menu ikon, når åben */
+.nav-toggle.open span:nth-child(1) {        
+
+transform: rotate(45deg) translate(5px, 5px);
+}
+.nav-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle.open span:nth-child(3) {
+transform: rotate(-45deg) translate(5px, -5px);
+} 
+/* Sprogmenu */
+.lang-menu {
+  position: absolute;
+  top: 60px;
+  right: 30px;
+  background: var(--soft-bg);
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  display: none;
+  flex-direction: column;
+  z-index: 1000;
+} 
+.lang-menu.show {
+  display: flex;
+}
+.lang-menu button {
+  background: transparent;
+  border: none;
+  padding: 10px 15px;
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
+  transition: background 0.2s;
+} 
+
+
+
+.lang-menu button:hover {
+  background: var(--accent);
+  color: var(--soft-bg);
+}
+ 
+/* Justering af margin i sprogknapper */
+.lang-item {
+  margin: 0;
+}
+
+/* Justering af margin i sprogknapper */
+.lang-item {
+  margin: 0;
+}
+      
