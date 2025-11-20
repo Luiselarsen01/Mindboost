@@ -64,9 +64,9 @@
 
 <main role="main" id="main-content">
     <!-- HERO -->
-    <section class="about-hero">
+    <section class="about-hero" aria-hidden="true">
         <div class="hero-overlay">
-            <h2>Brug for et øjeblik </h2>
+            <h2>Træk vejret et øjeblik </h2>
             <p>Mindboost hjælper dig med små, realistiske skridt til mere ro, balance og mental styrke.</p>
         </div>
     </section>
@@ -83,17 +83,17 @@
     <form class="contact-form" action="#" method="POST">
         <div class="form-group">
             <label for="name">Navn</label>
-            <input type="text" id="name" name="name" autocomplete="name" placeholder="Dit navn" required>
+            <input type="text" id="name" name="name" autocomplete="name" aria-required="true" placeholder="Dit navn" required>
         </div>
 
         <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" autocomplete="email" placeholder="Din email" required>
+            <input type="email" id="email" name="email" autocomplete="email" aria-required="true" placeholder="Din email" required>
         </div>
 
         <div class="form-group">
             <label for="message">Besked</label>
-            <textarea id="message" name="message" placeholder="Skriv din besked..." required></textarea>
+            <textarea id="message" name="message" aria-required="true" required placeholder="Skriv din besked..."></textarea>
         </div>
 
         <button type="submit" class="contact-btn">Send besked</button>
@@ -107,7 +107,7 @@
     <!-- Kontakt og hjælp -->
     <section class="contact-help" aria-labelledby="contact-title">
         <h2 id="contact-title">Kontakt & Hjælp</h2>
-        <h3>💬 Du er ikke alene. Her kan du få hjælp</h3>
+        <h3>💬 Du er ikke alene.</h3>
  
         <div class="contact-box">
             <div class="contact-item">
@@ -119,28 +119,21 @@
             <div class="contact-item">
                 <h3>💬 Hjælp og råd:</h3>
               <br> <p><a href="tel:116111" target="_blank">Ringe 116 111</a> – Akut hjælp</p>
-                <p><a href="https://www.livslinien.dk" target="_blank">Livslinien.dk</a> – Chat anonymt</p>
-                <p><a href="https://www.headspace.dk" target="_blank">Headspace</a> – Booke GRATIS samtale</p>
+                <p><a href="https://www.livslinien.dk" target="_blank">Livslinien.dk</a> – Anonym chat</p>
+                <p><a href="https://www.headspace.dk" target="_blank">Headspace</a> – Gratis samtale</p>
             </div>
         </div>
     </section>
 
     <!-- BILLEDESEKTION -->
     <section class="quote-block">
-        <h3>“Du behøver ikke ændre hele dit liv – bare én lille handling ad gangen.”</h3>
+        <h3>“Du behøver ikke ændre alt på én gang – prøv bare ét lille skridt ad gangen.”</h3>
     </section>
     <!-- HVEM ER VI -->
     <section class="about-section">
         <h2>Hvem er vi?</h2>
-        <p>
-            Mindboost blev skabt ud fra et ønske om at hjælpe mennesker, der føler sig pressede,
-            overvældede eller fastlåste. I en verden fyldt med krav, forventninger og konstante input
-            har vi brug for pauser – små øjeblikke der giver os luft.
-        </p>
-        <p>
-            Derfor bygger Mindboost på idéen om, at store forandringer begynder med små, realistiske skridt.
-            En vejrtrækning. En tanke. Et lille øjeblik til dig selv.
-        </p>
+   <p>Mindboost er skabt for alle, der føler sig stressede, overvældede eller fastlåste. Vi ved, at livet kan være tungt, og at små pauser kan gøre en stor forskel.</p>
+<p>Vi tror på, at store forandringer starter med små, enkle handlinger – et øjeblik med ro, en tanke, et lille skridt kun for dig selv.</p> </p>
     </section>
 
     <!-- MISSION -->
@@ -165,14 +158,8 @@
     <!-- VISION -->
     <section class="vision">
         <h2>Vores vision</h2>
-        <p>
-            Vi drømmer om at skabe et univers, hvor alle kan finde små mentale værktøjer – uden at føle
-            sig forkerte eller overvældede. Mindboost er ikke terapi. Det er et sted, hvor du kan lande
-            blidt, når hverdagen bliver tung.
-        </p>
-        <p>
-            Målet er at inspirere dig til at mærke dig selv igen – gennem ro, nærvær og små rutiner.
-        </p>
+  <p>Vi drømmer om en verden, hvor alle kan finde små mentale værktøjer uden at føle sig forkert eller presset. Mindboost er ikke terapi, men et sted, hvor du kan lande blidt.</p>
+<p>Målet er at hjælpe dig med at mærke dig selv igen – med ro, nærvær og små daglige rutiner.</p>
     </section>
 
 
@@ -188,7 +175,7 @@
             <div class="exercise">
                 <h3>2 min. vejrtrækning</h3>
                 <p>
-                  Følg din vejrtrækning i to minutter. Træk vejret langsomt ind og ud.
+                  Træk vejret langsomt ind og ud i to minutter. Føl luften fylde dine lunger og slip den langsomt.
                 </p>
             </div>
        <button 
@@ -200,7 +187,7 @@
         <div class="exercise-card" tabindex="0">
             <div class="exercise">
                 <h3>Grounding</h3> 
-                <p>Mærk dine fødder mod gulvet, skuldrerne ned og træk vejret dybt.</p>
+                <p>Mærk dine fødder mod gulvet, slap af i skuldrene, og træk vejret dybt.</p>
             </div>
             <button 
    onclick="readExercise(this.previousElementSibling.innerText)"
@@ -227,7 +214,7 @@ Sig én ting, du kan smage.</p>
         <div class="exercise-card">
             <div class="exercise">
                 <h3>Mini-meditation</h3>
-                <p>Luk øjnene 30 sekunder og føl dit åndedræt uden at ændre noget.</p>
+                <p>Luk øjnene 30 sekunder. Føl dit åndedræt uden at ændre det.</p>
             </div>
             <button onclick="readExercise(this.previousElementSibling.innerText)">🔊 Lyt</button>
         </div>
@@ -394,7 +381,12 @@ function readExercise(text) {
     speechSynthesis.cancel(); // Stop tidligere oplæsning
     speechSynthesis.speak(msg);
 }
-
+document.addEventListener("keydown", e => {
+    if (e.key === "Escape") {
+        langMenu.classList.remove("show");
+        mobileNav.classList.remove("open");
+    }
+});
 </script>
 </body>
 </html>

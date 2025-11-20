@@ -15,7 +15,7 @@ body {
     color: var(--text);
     font-family:  'Inter', sans-serif;
     line-height: 1.7;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 /* Overskrifter */
@@ -26,9 +26,16 @@ h1, h2, h3 {
 
 h1 { font-size: 32px; }
 h2 { font-size: 26px; }
-p { font-size: 19px; }
+p { font-size: 19px; 
+line-height: 1.8; }
 
-
+a {
+    color: #204473;
+    text-decoration: underline;
+}
+a:hover, a:focus {
+    color: #B85A3F; /* tydelig accentfarve */
+}
 
 button {
     font-family: 'Inter', sans-serif;
@@ -39,10 +46,17 @@ button {
     border: none;
     cursor: pointer;
     transition: background 0.3s;
+    background: #2D3C59; /* God kontrast til lys baggrund */
+    color: #F5F5F7;      /* Lys tekst */
 }
 
+.contact-btn {
+    background: #2D3C59; /* God kontrast til lys baggrund */
+    color: #F5F5F7;      /* Lys tekst */
+}
 button:hover {
     background-color: var(--text);
+    background: #1A1A1F;
 }
 
 
@@ -55,12 +69,14 @@ button:hover {
 
 /* Header styling */
 .site-header {
+    position: sticky;  /* Sticky header */
+    top: 0;
     width: 100%;
+    z-index: 100;
     background: var(--soft-bg);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    position: relative;
-    z-index: 10;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
+    
 
 /* Øverste række: sprog – logo – burger */
 .top-bar {
@@ -129,9 +145,10 @@ button:hover {
     color: var(--text);
 }
 
-.burger:hover {
-    background-color: var(--text); /* <-- det laver hele knappen mørk */
-    color: var(--bg); /* evt. */
+.burger:hover, .burger:focus {
+    background: var(--accent);
+    color: var(--soft-bg);
+    border-radius: 6px;
 }
 
 /* Selve mobilmenuen */
@@ -191,6 +208,11 @@ button:hover {
 /* MOBIL: skjul menuen */
 @media (max-width: 768px) {
 
+
+    body {
+        font-size: 20px;
+    }
+
     .main-nav {
         display: none;
     }
@@ -207,6 +229,10 @@ button:hover {
     .burger {
         display: block;
     }
+
+    p {
+    line-height: 1.8;
+}
 }
 
 
@@ -237,7 +263,15 @@ button:hover {
 }
 
 /* Små forbedringer */
-.primary-nav a:focus { outline: 3px solid rgba(0,95,204,0.15); outline-offset: 2px; }
+.primary-nav a:focus { 
+  outline: 3px solid rgba(0,95,204,0.15); 
+  outline-offset: 2px; }
+
+a:focus, button:focus, .language-dropdown li:focus {
+    outline: 3px solid #005FCC;
+    outline-offset: 3px;
+}
+  
 
 .skip-link {
     position: absolute;
@@ -383,8 +417,7 @@ button:hover {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
     gap: 20px;
-    margin-top: 25px;
-
+    align-items: stretch; /* Sørger for alle kort har samme højde */
 }
 
 .exercise-card {
@@ -528,7 +561,7 @@ button:focus,
     color: var(--text);
     padding: 50px 20px;
     text-align: center;
-    font-size: 16px;
+    font-size: 20px;
 }
 
 .footer-container {
@@ -562,10 +595,11 @@ button:focus,
 }
 
 .footer-nav a:hover {
-    color: var(--accent);
+    color: var(--button);
 }
 
 .footer-contact p {
+  font-size: 19px;
     margin: 5px 0;
 }
 
@@ -593,7 +627,7 @@ button:focus,
 .footer-copy {
     grid-column: 1 / -1;
     margin-top: 20px;
-    font-size: 14px;
+    font-size: 18px;
     color: var(--text);
 }
 
@@ -604,4 +638,3 @@ button:focus,
         gap: 20px;
     }
 }
-
