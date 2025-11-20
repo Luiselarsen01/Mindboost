@@ -74,43 +74,75 @@ btn.addEventListener("click", () => {
     }
 });
 
-// ======== Navigation ==============
-const navToggle = document.getElementById("navToggle");
-const primaryNav = document.getElementById("primaryNav");
+//---burger og nav Mobilmenu---//
+const burger = document.querySelector(".burger");
+    const nav = document.querySelector(".main-nav");
 
-navToggle.addEventListener("click", () => {
-  primaryNav.classList.toggle("open");
+    burger.addEventListener("click", () => {
+        nav.classList.toggle("open");
+    });
+
+
+
+
+
+ 
+/* --------- DROPDOWN: Sprog --------- */
+const langBtn = document.getElementById("lang-btn");
+const langMenu = document.getElementById("lang-menu");
+
+langBtn.addEventListener("click", () => {
+    langMenu.classList.toggle("show");
 });
 
-// ======== Language dropdown ==============
-const langToggle = document.getElementById("langToggle");
-const langMenu = document.getElementById("langMenu");
-
-langToggle.addEventListener("click", (e) => {
-  e.stopPropagation();
-  langMenu.classList.toggle("show");
+// Luk dropdown hvis man klikker ude i siden
+document.addEventListener("click", function(e) {
+    if (!langBtn.contains(e.target) && !langMenu.contains(e.target)) {
+        langMenu.classList.remove("show");
+    }
 });
 
-document.addEventListener("click", () => {
-  langMenu.classList.remove("show");
+/* --------- SPROG-TEKSTER --------- */
+const translations = {
+    da: {
+        nav_home: "Hjem",
+        nav_about: "Om os",
+        nav_contact: "Kontakt"
+    },
+    en: {
+        nav_home: "Home",
+        nav_about: "About Us",
+        nav_contact: "Contact"
+    },
+    de: {
+        nav_home: "Startseite",
+        nav_about: "Über uns",
+        nav_contact: "Kontakt"
+    }
+};
+
+// Når et sprog vælges
+langMenu.querySelectorAll("li").forEach(item => {
+    item.addEventListener("click", () => {
+        const selected = item.dataset.lang;
+
+        langBtn.textContent = item.textContent; // Opdater knappen
+        langMenu.classList.remove("show");
+
+        // Opdater alle tekster med data-translate
+        document.querySelectorAll("[data-translate]").forEach(el => {
+            const key = el.dataset.translate;
+            el.textContent = translations[selected][key];
+        });
+    });
 });
 
-langMenu.addEventListener("click", (e) => {
-  const btn = e.target.closest(".lang-item");
-  if (!btn) return;
-
-  langToggle.querySelector(".flag").textContent = btn.textContent.split(" ")[0];
-  langMenu.classList.remove("show");
+// Luk burger-menu
+document.querySelector(".close-burger").addEventListener("click", () => {
+    mobileNav.classList.remove("open");
 });
 
-
-document.addEventListener('click', (e) => {
-  if(!menu.contains(e.target) && menu.classList.contains('open')) {
-    menu.classList.remove('open');
-  }
+// Luk sprogvælger
+document.querySelector(".close-dropdown").addEventListener("click", () => {
+    langMenu.classList.remove("show");
 });
-const menu = document.getElementById('primaryNav');
-
-// =========================================
-
-

@@ -53,21 +53,177 @@ button:hover {
 
 
 
+/* Header styling */
+.site-header {
+    width: 100%;
+    background: var(--soft-bg);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 10;
+}
+
+/* Øverste række: sprog – logo – burger */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+}
+
+/* Logo centreret */
+.logo-area img {
+    height: 80px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Sprogvælger */
+/* --- Dropdown generelt --- */
+.language-dropdown {
+    position: relative;
+}
+
+.language-dropdown button {
+    background: transparent;
+    border: 1px solid var(--text);
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    color: var(--text);
+}
+
+.language-dropdown .dropdown {
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    background: var(--bg);
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    list-style: none;
+    padding: 10px;
+    width: 120px;
+    z-index: 100;
+}
+
+
+
+.language-dropdown .dropdown.show {
+    display: block;
+}
+
+.language-dropdown li {
+    padding: 8px;
+    cursor: pointer;
+}
+.language-dropdown li:hover {
+    background: var(--bg);
+    color: var(--text);
+}
+/* Burger */
+.burger {
+     background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--text);
+}
+
+.burger:hover {
+    background-color: var(--text); /* <-- det laver hele knappen mørk */
+    color: var(--bg); /* evt. */
+}
+
+/* Selve mobilmenuen */
+.mobile-nav {
+    display: none;              /* skjult som standard */
+    position: absolute;
+    font-size: 2em;
+    top: 100%;
+    right: 0;
+    border: none;
+    width: 200px;
+    background: var(--bg);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    padding: 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: var(--text);
+    font-size: 1.2rem;
+}
+
+.mobile-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.mobile-nav li {
+    margin-bottom: 12px;
+}
+
+.mobile-nav li :hover {
+    color: var(--accent);
+}
+
+.mobile-nav a {
+    text-decoration: none;
+    color: var(--text);
+    font-size: 1.1rem;
+}
+
+/* Viser menuen når .open er aktiv */
+.mobile-nav.open {
+    display: block;
+}
+
+.mobile-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.mobile-nav li {
+    margin: 15px 0;
+}
 
 
 
 
+/* MOBIL: skjul menuen */
+@media (max-width: 768px) {
 
+    .main-nav {
+        display: none;
+    }
 
+    .main-nav.open {
+        display: block;
+    }
 
+    .main-nav ul {
+        flex-direction: column;
+        gap: 15px;
+    }
 
+    .burger {
+        display: block;
+    }
+}
 
 
  
  
   
 
-
+.close-burger,
+.close-dropdown {
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+    float: right;
+    margin-bottom: 10px;
+    color: var(--text);
+}
 
 
 
@@ -83,8 +239,6 @@ button:hover {
 /* Små forbedringer */
 .primary-nav a:focus { outline: 3px solid rgba(0,95,204,0.15); outline-offset: 2px; }
 
-
-
 .skip-link {
     position: absolute;
     top: -40px;
@@ -93,12 +247,12 @@ button:hover {
     color: var(--bg);
     padding: 8px 16px;
     z-index: 1000;
-
 }
 
 .skip-link:focus {
     top: 0;
 }
+
 
 
 .logo { height: 250px; } /* Størrelse på logo */
@@ -110,99 +264,11 @@ button:hover {
   box-sizing: border-box;
 }
 
-
-
-
-.back-btn {
-    position: absolute;
-    left: 20px;
-    top: 22px;
-    text-decoration: none;
-  color: var(--text);
-    font-size: 20px;
-}
-
 .header h1 {
     margin: 0;
     letter-spacing: 1px;
 }
 
-
-
-
-
-
-/* Sprogknapper 
-.language-switch {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-.lang-btn {
-  background: transparent;
-  border: none;
-  font-size: 22px;
-  cursor: pointer;
-  transition: transform 0.15s;
-}
-.lang-btn:hover { transform: scale(1.15); }*/
-
-/* HVORFOR VÆLGE OS */
-
-
-
-/* WHY-US SEKTION MED SKRÅ BAGGRUND OG BAGGRUNDSBILLEDE */
-.why-us {
-  position: relative;
-  overflow: hidden;
-  color: var(--soft-bg);
-  text-align: center;
-  margin: 0;
-  padding: 20px 12px;
-  background: url("../img/about-bg.jpg") center/cover no-repeat; /* ← skift til dit eget billede */
-}
-
-/* Overlay med skrå streg (den lyserøde “vinkel”) */
-.why-us::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 75%;
-  background: linear-gradient(175deg, #FFD6C5 0%, #FFEAE1 100%); /* Juster farver efter stil */
-  transform-origin: bottom left;
-  transform: skewY(-6deg);
-  z-index: 1;
-}
-
-/* Tekstlag ovenpå */
-.why-us-overlay {
-  position: relative;
-  z-index: 2;
-  margin: 0 auto;
-  backdrop-filter: blur(3px);
-  padding: 10px 14px;
-
-}
-
-.why-us h2 {
-   color: var(--soft-bg);
-  font-size: 38px;
-  margin-bottom: 14px;
-}
-
-.why-us h3 {
-  font-size: 18px;
-  line-height: 1.6;
-  color: var(--soft-bg);
-}
-
-.why-us h4 {
-  font-size: 16px;
-  line-height: 1.6;
-  color: var(--main-color);
-}
 
 
 /* HERO */
@@ -335,7 +401,7 @@ button:hover {
     transform: translateY(-2px);
 }
 
-
+/*kontakt sektion */
 .contact-help,
 .contact-form-section {
     padding: 50px 20px;
@@ -458,182 +524,3 @@ button:focus,
     margin-bottom: 10px;
 }
 
-
-/* HEADER */
-.site-header {
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding: 20px 30px;
-background-color: var(--bg);
-box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-position: sticky;
-top: 0;
-z-index: 999;
-}
-
-/* Logo */
-.logo-area {
-display: flex;
-align-items: center;
-gap: 12px;
-text-decoration: none;
-color: var(--text);
-}
-
-.logo-area img {
-height: 50px;
-width: auto;
-}
-
-.logo-area span {
-font-family: 'Poppins', sans-serif;
-font-weight: 700;
-font-size: 1.5rem;
-}
-
-/* Sprogknapper inde i logo (kan placeres til højre, hvis ønsket) */
-.logo-area li {
-display: inline-block;
-margin-left: 10px;
-}
-
-.lang-item {
-background: transparent;
-border: 1px solid var(--accent);
-padding: 5px 10px;
-border-radius: 6px;
-cursor: pointer;
-transition: all 0.3s;
-font-size: 0.9rem;
-}
-
-.lang-item:hover {
-background: var(--accent);
-color: var(--soft-bg);
-}
-
-/* NAVIGATION */
-.primary-nav ul {
-list-style: none;
-display: flex;
-gap: 25px;
-}
-
-.primary-nav a {
-text-decoration: none;
-color: var(--text);
-font-weight: 500;
-padding: 8px 12px;
-border-radius: 6px;
-transition: background 0.3s, color 0.3s;
-}
-
-.primary-nav a:hover,
-.primary-nav a:focus {
-background: var(--accent);
-color: var(--soft-bg);
-}
-
-/* RESPONSIVE MENU - mobil */
-@media (max-width: 768px) {
-.site-header {
-flex-direction: column;
-align-items: flex-start;
-gap: 10px;
-}
-
-.primary-nav ul {
-    flex-direction: column;
-    width: 100%;
-}
-
-.primary-nav a {
-    display: block;
-    width: 100%;
-    text-align: left;
-    padding: 12px 0;
-}
-.nav-toggle {
-    background: none;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    padding: 8px;           
-
-}
-.nav-toggle span {
-    display: block;
-    width: 24px;
-    height: 3px;
-    background: var(--text);
-    border-radius: 3px;
-    transition: all 0.3s;
-}
-
-.primary-nav {
-    display: none;
-    width: 100%;
-    margin-top: 10px;
-}
-
-.primary-nav.open {
-    display: block;
-}
-}
-/* Ændring af burger-menu ikon, når åben */
-.nav-toggle.open span:nth-child(1) {        
-
-transform: rotate(45deg) translate(5px, 5px);
-}
-.nav-toggle.open span:nth-child(2) {
-  opacity: 0;
-}
-.nav-toggle.open span:nth-child(3) {
-transform: rotate(-45deg) translate(5px, -5px);
-} 
-/* Sprogmenu */
-.lang-menu {
-  position: absolute;
-  top: 60px;
-  right: 30px;
-  background: var(--soft-bg);
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  display: none;
-  flex-direction: column;
-  z-index: 1000;
-} 
-.lang-menu.show {
-  display: flex;
-}
-.lang-menu button {
-  background: transparent;
-  border: none;
-  padding: 10px 15px;
-  text-align: left;
-  width: 100%;
-  cursor: pointer;
-  transition: background 0.2s;
-} 
-
-
-
-.lang-menu button:hover {
-  background: var(--accent);
-  color: var(--soft-bg);
-}
- 
-/* Justering af margin i sprogknapper */
-.lang-item {
-  margin: 0;
-}
-
-/* Justering af margin i sprogknapper */
-.lang-item {
-  margin: 0;
-}
-      
