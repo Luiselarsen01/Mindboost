@@ -76,7 +76,20 @@ button:hover, .contact-btn:hover {
     outline-offset: 3px;
 }
 
+.image-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+}
 
+.content-image {
+    width: 90%;
+    max-width: 900px;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
 
 /* Header styling */
 .site-header {
