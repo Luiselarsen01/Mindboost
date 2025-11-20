@@ -3,7 +3,7 @@
   --text: #1A1A1F;         /* Mørk, høj kontrast */
   --accent: #B85A3F;       /* Varme, men mørkere for bedre kontrast */
   --button: #2D3C59;       /* God kontrast */
-  --soft-bg: #E8EEF2;      /* Rolig baggrund */
+  --soft-bg: #d7e8f3;      /* Rolig baggrund */
   --bg-l: linear-gradient(175deg, #c0dfeb 0%, #E8EEF2 100%);
 --bg-l2: linear-gradient(175deg, #2D3C59 0%, #E8EEF2 100%);
 --bg-l3: linear-gradient(175deg, #DCE7EA 0%, #C1D3D8 100%);
@@ -388,14 +388,21 @@ button:hover {
 }
 
 .exercise-card {
-  color: var(--text);
+ display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Skubber indhold op og knap ned */
+    height: 100%; /* Vigtigt for at kortene får samme højde */
     padding: 30px;
     border-radius: 35px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     text-align: center;
     transition: 0.3s;
-  background-color: var(--bg);
+    background-color: var(--bg);
     color: var(--text);
+}
+
+.exercise-card .exercise {
+    flex-grow: 1; /* Tager alt pladsen over knappen */
 }
 
 .exercise-card:hover {
@@ -517,8 +524,8 @@ button:focus,
 }
 /* FOOTER */
 .footer {
-    background: var(--button);
-    color: var(--soft-bg);
+    background: var(--soft-bg);
+    color: var(--text);
     padding: 50px 20px;
     text-align: center;
     font-size: 16px;
@@ -548,7 +555,7 @@ button:focus,
 }
 
 .footer-nav a {
-    color: var(--soft-bg);
+    color: var(--text);
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s;
@@ -563,7 +570,7 @@ button:focus,
 }
 
 .footer-contact a {
-    color: var(--soft-bg);
+    color: var(--text);
     text-decoration: none;
     font-weight: bold;
 }
@@ -573,7 +580,7 @@ button:focus,
 }
 
 .footer-social a {
-    color: var(--soft-bg);
+    color: var(--text);
     margin: 0 8px;
     font-size: 20px;
     transition: color 0.3s;
@@ -587,7 +594,7 @@ button:focus,
     grid-column: 1 / -1;
     margin-top: 20px;
     font-size: 14px;
-    color: var(--soft-bg);
+    color: var(--text);
 }
 
 /* Mobile */
