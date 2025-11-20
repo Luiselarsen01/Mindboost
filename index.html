@@ -19,7 +19,7 @@
 
         <!-- Sprogvælger -->
         <div class="language-dropdown">
-            <button id="lang-btn">🌍 Dansk</button>
+            <button id="lang-btn">🌍 Sprog: Dansk <span class="arrow">▼</span> </button>
             <ul id="lang-menu" class="dropdown">
                  <li class="close-dropdown">✖</li>
                 <li data-lang="da">🇩🇰 Dansk</li>
@@ -385,6 +385,18 @@ document.addEventListener("keydown", e => {
     if (e.key === "Escape") {
         langMenu.classList.remove("show");
         mobileNav.classList.remove("open");
+    }
+})
+
+
+// Header baggrund ved scroll
+const header = document.querySelector('.site-header');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) { // Hvis vi har scrollet 50px ned
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
     }
 });
 </script>

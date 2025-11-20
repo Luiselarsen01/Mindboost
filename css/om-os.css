@@ -1,12 +1,12 @@
 :root {
-  --bg: #F5F5F7;           /* Lys neutral */
-  --text: #1A1A1F;         /* Mørk, høj kontrast */
-  --accent: #B85A3F;       /* Varme, men mørkere for bedre kontrast */
-  --button: #2D3C59;       /* God kontrast */
-  --soft-bg: #d7e8f3;      /* Rolig baggrund */
-  --bg-l: linear-gradient(175deg, #c0dfeb 0%, #E8EEF2 100%);
---bg-l2: linear-gradient(175deg, #2D3C59 0%, #E8EEF2 100%);
---bg-l3: linear-gradient(175deg, #DCE7EA 0%, #C1D3D8 100%);
+--bg: #f0f0f0;           /* Hovedbaggrund: lys, neutral */
+  --text: #1A1A1F;         /* Mørk tekst: høj kontrast mod lys baggrund */
+  --accent: #005FCC;       /* Blå accent: links, fokus, vigtige elementer */
+  --button: #204473;       /* Knapper: mørk blå med hvid tekst */
+  --soft-bg: #F0F4F8;      /* Blid baggrund til sektioner/kort */
+  --bg-l: linear-gradient(175deg, #CDE6FF 0%, #E8F0FF 100%); /* Hero / mission sektion */
+  --bg-l2: linear-gradient(175deg, #204473 0%, #E8F0FF 100%);
+  --bg-l3: linear-gradient(175deg, #DCE7EA 0%, #C1D3D8 100%);
 }
 
 body {
@@ -30,10 +30,15 @@ p { font-size: 19px;
 line-height: 1.8; }
 
 a {
-    color: #204473;
+    color: var(--accent);
     text-decoration: underline;
+    font-weight: bold;
 }
-a:hover, a:focus {
+
+a:hover {
+    color: var(--button);
+}
+a:focus {
     color: #B85A3F; /* tydelig accentfarve */
 }
 
@@ -50,15 +55,21 @@ button {
     color: #F5F5F7;      /* Lys tekst */
 }
 
-.contact-btn {
-    background: #2D3C59; /* God kontrast til lys baggrund */
-    color: #F5F5F7;      /* Lys tekst */
-}
-button:hover {
-    background-color: var(--text);
-    background: #1A1A1F;
+button, .contact-btn {
+    background: var(--button);  /* Mørk blå */
+    color: #FFFFFF;             /* Hvid tekst for kontrast */
+    padding: 14px 20px;
+    border-radius: 20px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
 }
 
+button:hover, .contact-btn:hover {
+    background: var(--accent);  /* Lysere blå ved hover */
+    transform: translateY(-2px);
+}
 
 :focus {
     outline: 3px solid #005fcc;
@@ -75,8 +86,12 @@ button:hover {
     z-index: 100;
     background: var(--soft-bg);
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+     transition: background 0.3s;
 }
-    
+.site-header {
+    background: rgba(240, 244, 248, 0.8); /* semi-transparent start */
+    backdrop-filter: blur(6px); /* giver 'glas-effekt' og læsbarhed */
+}
 
 /* Øverste række: sprog – logo – burger */
 .top-bar {
@@ -95,10 +110,16 @@ button:hover {
 
 /* Sprogvælger */
 /* --- Dropdown generelt --- */
-.language-dropdown {
-    position: relative;
+.language-dropdown .arrow {
+    font-size: 0.8em;
+    margin-left: 4px;
+    transition: transform 0.3s;
 }
 
+.language-dropdown .dropdown.show + .arrow,
+.language-dropdown .dropdown.show .arrow {
+    transform: rotate(180deg);
+}
 .language-dropdown button {
     background: transparent;
     border: 1px solid var(--text);
@@ -267,9 +288,17 @@ button:hover {
   outline: 3px solid rgba(0,95,204,0.15); 
   outline-offset: 2px; }
 
-a:focus, button:focus, .language-dropdown li:focus {
+a:focus,
+button:focus, 
+.language-dropdown li:focus {
     outline: 3px solid #005FCC;
     outline-offset: 3px;
+}
+
+button:focus,
+.contact-btn:focus {
+    background: #002F6C;
+    color: #FFF;
 }
   
 
@@ -446,7 +475,13 @@ a:focus, button:focus, .language-dropdown li:focus {
     outline: 3px solid var(--text); /* fokus for tastaturbrugere */
 }
 
+.exercise-section p {
+    margin-bottom: 30px; /* Luft under teksten */
+    line-height: 1.8;    /* Bedre læsbarhed */
+}
+
 /*kontakt sektion */
+
 .contact-help,
 .contact-form-section {
     padding: 50px 20px;
@@ -455,7 +490,7 @@ a:focus, button:focus, .language-dropdown li:focus {
     text-align: center;
       font-size: 18px;
        font-family: 'Nunito', sans-serif;
-    line-height: 1.6;
+    line-height: 1.8;
 }
 
 .contact-box {
@@ -500,6 +535,10 @@ a:focus, button:focus, .language-dropdown li:focus {
     
 }
 
+.contact-form-section p {
+    margin-bottom: 30px; /* Mere luft under teksten */
+    line-height: 1.8;    /* Giver bedre læsbarhed */
+} 
 .contact-form input,
 .contact-form textarea {
     padding: 12px 15px;
