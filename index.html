@@ -42,8 +42,8 @@
            <button class="close-burger">✖</button>
         <ul>
             <li><a data-translate="nav_home" href="index.html">Hjem</a></li>
-            <li><a data-translate="nav_about" href="om-os.html">Om os</a></li>
-            <li><a data-translate="nav_contact" href="kontakt.html">Kontakt</a></li>
+            <li><a data-translate="nav_about" href="about.html">Om os</a></li>
+            <li><a data-translate="nav_contact" href="contact.html">Kontakt</a></li>
         </ul>
     </nav>
 </header>
@@ -184,7 +184,7 @@
 
     <div class="exercise-grid">
 
-        <div class="exercise-card">
+        <div class="exercise-card" tabindex="0">
             <div class="exercise">
                 <h3>2 min. vejrtrækning</h3>
                 <p>
@@ -197,7 +197,7 @@
    🔊 Lyt
 </button> </div>
 
-        <div class="exercise-card">
+        <div class="exercise-card" tabindex="0">
             <div class="exercise">
                 <h3>Grounding</h3> 
                 <p>Mærk dine fødder mod gulvet, skuldrerne ned og træk vejret dybt.</p>
@@ -209,7 +209,7 @@
 </button>
         </div>
 
-        <div class="exercise-card">
+        <div class="exercise-card" >
             <div class="exercise">
                 <h3>5–4–3–2–1</h3>
                <p> Sig fem ting, du kan se.
@@ -239,33 +239,75 @@ Sig én ting, du kan smage.</p>
 </main>
 <!-- Footer -->
 <footer role="contentinfo" class="footer">
-    
-        <div class="footer">
-        <a href="index.html"><img src="img/logo5.svg" alt="Mindboost logo" class="logo"></a>
+ <footer class="footer">
+  <div class="footer-container">
 
+    <!-- Logo -->
+    <div class="footer-logo">
+      <a href="index.html"><img src="img/logo7.svg" alt="Mindboost logo"></a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <ul>
+        <li><a href="index.html" data-translate="nav_home">Hjem</a></li>
+        <li><a href="about.html" data-translate="nav_about">Om os</a></li>
+        <li><a href="contact.html" data-translate="nav_contact">Kontakt</a></li>
+      </ul>
+    </nav>
+
+    <!-- Kontakt info -->
+    <div class="footer-contact">
+      <p>Email: <a href="mailto:kontakt@mindboost.dk">kontakt@mindboost.dk</a></p>
+      <p>Telefon: <a href="tel:116111">116 111</a></p>
+    </div>
+
+    <!-- Sociale medier -->
+    <div class="footer-social">
+      <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    </div>
+
+    <!-- Copyright -->
+    <div class="footer-copy">
+      <p>© 2025 Mindboost. Alle rettigheder forbeholdes.</p>
+    </div>
+    
+  </div>
+</footer>
   
 </footer>
 
 <!-- JS -->
 <script src="main.js" defer></script>
 <script>
-// --- BURGER MENU ---
+/* ================================
+   BURGER MENU
+================================= */
 const burgerBtn = document.getElementById("burger-btn");
 const mobileNav = document.getElementById("mobile-nav");
 
+// Åbn/luk mobilmenu
 burgerBtn.addEventListener("click", () => {
     mobileNav.classList.toggle("open");
 });
 
-// Luk menu når man klikker udenfor
+// Luk menu, når man klikker udenfor
 document.addEventListener("click", (e) => {
     if (!mobileNav.contains(e.target) && !burgerBtn.contains(e.target)) {
         mobileNav.classList.remove("open");
     }
 });
 
+// Luk menu med kryds-knap
+document.querySelector(".close-burger")?.addEventListener("click", () => {
+    mobileNav.classList.remove("open");
+});
 
-// --- SPROGVÆLGER DROPDOWN ---
+
+/* ================================
+   SPROGVÆLGER DROPDOWN
+================================= */
 const langBtn = document.getElementById("lang-btn");
 const langMenu = document.getElementById("lang-menu");
 
@@ -273,81 +315,86 @@ langBtn.addEventListener("click", () => {
     langMenu.classList.toggle("show");
 });
 
+// Luk dropdown, hvis man klikker udenfor
 document.addEventListener("click", (e) => {
     if (!langMenu.contains(e.target) && !langBtn.contains(e.target)) {
         langMenu.classList.remove("show");
     }
 });
 
-
-// --- TEKST-OVERSÆTTELSER ---
-const translations = {
-  da: {
-    nav_home: "Hjem",
-    nav_about: "Om os",
-    nav_contact: "Kontakt",
-
-    hero_title: "Brug for et øjeblik",
-    hero_text: "Mindboost hjælper dig med små, realistiske skridt til mere ro, balance og mental styrke.",
-
-    contact_title: "Skriv til os"
-  },
-
-  en: {
-    nav_home: "Home",
-    nav_about: "About us",
-    nav_contact: "Contact",
-
-    hero_title: "Need a moment?",
-    hero_text: "Mindboost helps you with small, realistic steps toward more calm, balance, and mental strength.",
-
-    contact_title: "Write to us"
-  },
-
-  de: {
-    nav_home: "Startseite",
-    nav_about: "Über uns",
-    nav_contact: "Kontakt",
-
-    hero_title: "Brauchen Sie einen Moment?",
-    hero_text: "Mindboost hilft Ihnen mit kleinen, realistischen Schritten zu mehr Ruhe, Balance und mentaler Stärke.",
-
-    contact_title: "Schreib uns"
-  }
-};
-
-
-// --- SKIFT SPROG ---
-langMenu.querySelectorAll("li").forEach(langItem => {
-    langItem.addEventListener("click", () => {
-        const selectedLang = langItem.dataset.lang;
-
-        langBtn.innerText = langItem.innerText; // Opdater knap
-
-        applyTranslations(selectedLang);
-        langMenu.classList.remove("show");
-    });
-});
-
-
-// Funktion der skifter tekst på siden
-function applyTranslations(lang) {
-    document.querySelectorAll("[data-translate]").forEach(el => {
-        const key = el.dataset.translate;
-        el.innerText = translations[lang][key];
-    });
-}
-
-
-// Luk burger-menu
-document.querySelector(".close-burger").addEventListener("click", () => {
-    mobileNav.classList.remove("open");
-});
-
-// Luk sprogvælger
-document.querySelector(".close-dropdown").addEventListener("click", () => {
+// Luk dropdown med kryds-knap
+document.querySelector(".close-dropdown")?.addEventListener("click", () => {
     langMenu.classList.remove("show");
 });
+
+
+/* ================================
+   TEKST-OVERSÆTTELSER
+================================= */
+const translations = {
+    da: {
+        nav_home: "Hjem",
+        nav_about: "Om os",
+        nav_contact: "Kontakt",
+
+        hero_title: "Brug for et øjeblik",
+        hero_text: "Mindboost hjælper dig med små, realistiske skridt til mere ro, balance og mental styrke.",
+
+        contact_title: "Skriv til os"
+    },
+    en: {
+        nav_home: "Home",
+        nav_about: "About us",
+        nav_contact: "Contact",
+
+        hero_title: "Need a moment?",
+        hero_text: "Mindboost helps you with small, realistic steps toward more calm, balance, and mental strength.",
+
+        contact_title: "Write to us"
+    },
+    de: {
+        nav_home: "Startseite",
+        nav_about: "Über uns",
+        nav_contact: "Kontakt",
+
+        hero_title: "Brauchen Sie einen Moment?",
+        hero_text: "Mindboost hilft Ihnen mit kleinen, realistischen Schritten zu mehr Ruhe, Balance und mentaler Stärke.",
+
+        contact_title: "Schreib uns"
+    }
+};
+
+// Skift sprog, når man klikker på dropdown-item
+langMenu.querySelectorAll("li[data-lang]").forEach(item => {
+    item.addEventListener("click", () => {
+        const lang = item.dataset.lang;
+        langBtn.textContent = item.textContent; // Opdater knap
+        langMenu.classList.remove("show");
+
+        // Opdater alle elementer med data-translate
+        document.querySelectorAll("[data-translate]").forEach(el => {
+            const key = el.dataset.translate;
+            if (translations[lang][key]) {
+                el.textContent = translations[lang][key];
+            }
+        });
+    });
+});
+
+
+/* ================================
+   LYT TIL ØVELSER
+================================= */
+function readExercise(text) {
+    const msg = new SpeechSynthesisUtterance(text);
+    msg.lang = "da-DK";   // Dansk
+    msg.rate = 1;
+    msg.pitch = 1;
+
+    speechSynthesis.cancel(); // Stop tidligere oplæsning
+    speechSynthesis.speak(msg);
+}
+
 </script>
 </body>
 </html>

@@ -3,29 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mindboost</title>
+   
+   <script src="https://kit.fontawesome.com/aeac955614.js" crossorigin="anonymous"></script> <title>Mindboost</title>
     <link rel="stylesheet" href="css/om-os.css">
-        <link href="https://fonts.google
-        apis.com/css2?family=Julius+Sans+One&family=Libre+Bodoni:ital,wght@0,400;1,700&family=Mynerve&family=Marko+One&display=swap" rel="stylesheet">
-</head>
-<body>
-<a href="#main-content" class="skip-link">Spring til indhold</a>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 
-<header class="header" role="banner"> 
-   <a href="index.html" class="back-btn">← Tilbage</a>
-         
-    <h1> Mindboost</h1>       <div class="language-switch">
-       <button class="lang-btn" data-lang="da" aria-label="Skift til dansk">🇩🇰</button>
-<button class="lang-btn" data-lang="en" aria-label="Switch to English">🇬🇧</button>
-<button class="lang-btn" data-lang="de" aria-label="Wechsel zu Deutsch">🇩🇪</button>
-            </div>       
+    </head>
 
 
+    <body>
+        <title>Mindboost - Kontakt</title>
+<header class="site-header">
 
+    <!-- Topbar: Sprog – Logo – Burger -->
+    <div class="top-bar">
+
+        <!-- Sprogvælger -->
+        <div class="language-dropdown">
+            <button id="lang-btn">🌍 Dansk</button>
+            <ul id="lang-menu" class="dropdown">
+                 <li class="close-dropdown">✖</li>
+                <li data-lang="da">🇩🇰 Dansk</li>
+                <li data-lang="en">🇬🇧 English</li>
+                <li data-lang="de">🇩🇪 Deutsch</li>
+            </ul>
+        </div>
+
+        <!-- Logo -->
+        <a href="index.html" class="logo-area">
+            <img src="img/logo7.svg" alt="Mindboost logo">
+        </a>
+
+        <!-- Burger knap -->
+        <button id="burger-btn" class="burger" aria-label="Menu">☰</button>
+    </div>
+
+    <!-- Burger-menu -->
+    <nav id="mobile-nav" class="mobile-nav">
+           <button class="close-burger">✖</button>
+        <ul>
+            <li><a data-translate="nav_home" href="index.html">Hjem</a></li>
+            <li><a data-translate="nav_about" href="about.html">Om os</a></li>
+            <li><a data-translate="nav_contact" href="contact.html">Kontakt</a></li>
+        </ul>
+    </nav>
 </header>
 
-<main role="main" id="main-content">
 
+
+
+
+
+
+
+
+
+
+
+
+<a href="#main-content" class="skip-link">Spring til indhold</a>
+
+<main role="main" id="main-content">
     <!-- HERO -->
     <section class="about-hero">
         <div class="hero-overlay">
@@ -35,10 +73,14 @@
     </section>
 
 
-    <section class="contact-form-section" aria-labelledby="contact-form-title">
+
+
+
+ <!-- kontakt formular -->
+ <section class="contact-form-section" aria-labelledby="contact-form-title">
     <h2 id="contact-form-title">Skriv til os</h2>
     <p> Har du spørgsmål eller bare brug for at dele, hvordan du har det? Du er altid velkommen til at skrive til os – vi svarer inden for 24 timer.</p>
-<br>
+
     <form class="contact-form" action="#" method="POST">
         <div class="form-group">
             <label for="name">Navn</label>
@@ -62,21 +104,24 @@
 
 
 
+
     <!-- Kontakt og hjælp -->
     <section class="contact-help" aria-labelledby="contact-title">
         <h2 id="contact-title">Kontakt & Hjælp</h2>
-        <p>Har du brug for hjælp netop nu? Du er ikke alene. Du kan:</p>
+        <h3>💬 Du er ikke alene. Her kan du få hjælp</h3>
+ 
         <div class="contact-box">
             <div class="contact-item">
-                <h3>📩 Kontakt os</h3>
+                <h3>📩 Kontakt os</h3><br>
+                
                 <p>Email: <a href="mailto:kontakt@mindboost.dk">kontakt@mindboost.dk</a></p>
                 <p>Vi svarer inden for 24 timer.</p>
             </div>
             <div class="contact-item">
-                <h3>💬 Har du brug for hjælp netop nu? Du er ikke alene. Du kan:</h3>
-                <p><a href="tel:116111" target="_blank">Ringe 116 111</a> – Akut hjælp</p>
-                <p><a href="https://www.livslinien.dk" target="_blank">Livslinien.dk</a> – Læse og chatte anonymt</p>
-                <p><a href="https://www.headspace.dk" target="_blank">Headspace</a> – Booke en gratis samtale</p>
+                <h3>💬 Hjælp og råd:</h3>
+              <br> <p><a href="tel:116111" target="_blank">Ringe 116 111</a> – Akut hjælp</p>
+                <p><a href="https://www.livslinien.dk" target="_blank">Livslinien.dk</a> – Chat anonymt</p>
+                <p><a href="https://www.headspace.dk" target="_blank">Headspace</a> – Booke GRATIS samtale</p>
             </div>
         </div>
     </section>
@@ -133,7 +178,7 @@
 
 
     <!--øvelser-->
-
+<section class="exercise intro">
     <section class="exercise-section" aria-labelledby="exercise-title">
     <h2 id="exercise-title">Øvelser</h2>
     <p>Korte øvelser du kan lave når som helst for at finde ro og fokus. Hver øvelse har en ''Lyt'' knap. </p>
@@ -142,11 +187,11 @@
 
         <div class="exercise-card">
             <div class="exercise">
-                <h3>2 min. vejrtrækning</h3><br>
+                <h3>2 min. vejrtrækning</h3>
                 <p>
                   Følg din vejrtrækning i to minutter. Træk vejret langsomt ind og ud.
                 </p>
-            </div><br>
+            </div>
        <button 
    onclick="readExercise(this.previousElementSibling.innerText)"
    aria-label="Lyt til øvelsen: 2 minutters vejrtrækning">
@@ -155,9 +200,9 @@
 
         <div class="exercise-card">
             <div class="exercise">
-                <h3>Grounding</h3> <br>
+                <h3>Grounding</h3> 
                 <p>Mærk dine fødder mod gulvet, skuldrerne ned og træk vejret dybt.</p>
-            </div><br>
+            </div>
             <button 
    onclick="readExercise(this.previousElementSibling.innerText)"
    aria-label="Lyt til øvelsen: Grounding">
@@ -167,28 +212,30 @@
 
         <div class="exercise-card">
             <div class="exercise">
-                <h3>5–4–3–2–1</h3><br>
-               <p> Sig fem ting, du kan se.<br>
+                <h3>5–4–3–2–1</h3>
+               <p> Sig fem ting, du kan se.
 
-Sig fire ting, du kan mærke.<br>
-                Sig tre ting, du kan høre.<br>
+Sig fire ting, du kan mærke.
+                Sig tre ting, du kan høre.
 
-Sig to ting, du kan dufte.<br>      
+Sig to ting, du kan dufte.      
 
 Sig én ting, du kan smage.</p>
-            </div><br>
+            </div>
             <button onclick="readExercise(this.previousElementSibling.innerText)">🔊 Lyt</button>
         </div>
 
         <div class="exercise-card">
             <div class="exercise">
-                <h3>Mini-meditation</h3><br>
+                <h3>Mini-meditation</h3>
                 <p>Luk øjnene 30 sekunder og føl dit åndedræt uden at ændre noget.</p>
-            </div><br>
+            </div>
             <button onclick="readExercise(this.previousElementSibling.innerText)">🔊 Lyt</button>
         </div>
 
     </div>
+</section>
+
 </section>
 </main>
 <!-- Footer -->
@@ -202,5 +249,106 @@ Sig én ting, du kan smage.</p>
 
 <!-- JS -->
 <script src="main.js" defer></script>
+<script>
+// --- BURGER MENU ---
+const burgerBtn = document.getElementById("burger-btn");
+const mobileNav = document.getElementById("mobile-nav");
+
+burgerBtn.addEventListener("click", () => {
+    mobileNav.classList.toggle("open");
+});
+
+// Luk menu når man klikker udenfor
+document.addEventListener("click", (e) => {
+    if (!mobileNav.contains(e.target) && !burgerBtn.contains(e.target)) {
+        mobileNav.classList.remove("open");
+    }
+});
+
+
+// --- SPROGVÆLGER DROPDOWN ---
+const langBtn = document.getElementById("lang-btn");
+const langMenu = document.getElementById("lang-menu");
+
+langBtn.addEventListener("click", () => {
+    langMenu.classList.toggle("show");
+});
+
+document.addEventListener("click", (e) => {
+    if (!langMenu.contains(e.target) && !langBtn.contains(e.target)) {
+        langMenu.classList.remove("show");
+    }
+});
+
+
+// --- TEKST-OVERSÆTTELSER ---
+const translations = {
+  da: {
+    nav_home: "Hjem",
+    nav_about: "Om os",
+    nav_contact: "Kontakt",
+
+    hero_title: "Brug for et øjeblik",
+    hero_text: "Mindboost hjælper dig med små, realistiske skridt til mere ro, balance og mental styrke.",
+
+    contact_title: "Skriv til os"
+  },
+
+  en: {
+    nav_home: "Home",
+    nav_about: "About us",
+    nav_contact: "Contact",
+
+    hero_title: "Need a moment?",
+    hero_text: "Mindboost helps you with small, realistic steps toward more calm, balance, and mental strength.",
+
+    contact_title: "Write to us"
+  },
+
+  de: {
+    nav_home: "Startseite",
+    nav_about: "Über uns",
+    nav_contact: "Kontakt",
+
+    hero_title: "Brauchen Sie einen Moment?",
+    hero_text: "Mindboost hilft Ihnen mit kleinen, realistischen Schritten zu mehr Ruhe, Balance und mentaler Stärke.",
+
+    contact_title: "Schreib uns"
+  }
+};
+
+
+// --- SKIFT SPROG ---
+langMenu.querySelectorAll("li").forEach(langItem => {
+    langItem.addEventListener("click", () => {
+        const selectedLang = langItem.dataset.lang;
+
+        langBtn.innerText = langItem.innerText; // Opdater knap
+
+        applyTranslations(selectedLang);
+        langMenu.classList.remove("show");
+    });
+});
+
+
+// Funktion der skifter tekst på siden
+function applyTranslations(lang) {
+    document.querySelectorAll("[data-translate]").forEach(el => {
+        const key = el.dataset.translate;
+        el.innerText = translations[lang][key];
+    });
+}
+
+
+// Luk burger-menu
+document.querySelector(".close-burger").addEventListener("click", () => {
+    mobileNav.classList.remove("open");
+});
+
+// Luk sprogvælger
+document.querySelector(".close-dropdown").addEventListener("click", () => {
+    langMenu.classList.remove("show");
+});
+</script>
 </body>
 </html>

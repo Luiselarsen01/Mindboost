@@ -393,12 +393,17 @@ button:hover {
     border-radius: 35px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     text-align: center;
-    transition: 0.2s;
-    background-color: var(--bg);
+    transition: 0.3s;
+  background-color: var(--bg);
+    color: var(--text);
 }
 
 .exercise-card:hover {
-    transform: translateY(-2px);
+    transform: translateY(-4px);
+}
+.exercise-card:hover,
+.exercise-card:focus-within {
+    outline: 3px solid var(--text); /* fokus for tastaturbrugere */
 }
 
 /*kontakt sektion */
@@ -512,15 +517,84 @@ button:focus,
 }
 /* FOOTER */
 .footer {
+    background: var(--button);
+    color: var(--soft-bg);
+    padding: 50px 20px;
     text-align: center;
-    padding: 10px;
-    margin-top: 10px;
-    background: var(--main-bg);
-  color: var(--soft-bg);
+    font-size: 16px;
 }
 
-.footer .logo {
-    height: 200px;
-    margin-bottom: 10px;
+.footer-container {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    align-items: center;
+}
+
+.footer-logo img {
+    height: 80px;
+}
+
+.footer-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-nav li {
+    margin: 8px 0;
+}
+
+.footer-nav a {
+    color: var(--soft-bg);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.footer-nav a:hover {
+    color: var(--accent);
+}
+
+.footer-contact p {
+    margin: 5px 0;
+}
+
+.footer-contact a {
+    color: var(--soft-bg);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-contact a:hover {
+    color: var(--accent);
+}
+
+.footer-social a {
+    color: var(--soft-bg);
+    margin: 0 8px;
+    font-size: 20px;
+    transition: color 0.3s;
+}
+
+.footer-social a:hover {
+    color: var(--accent);
+}
+
+.footer-copy {
+    grid-column: 1 / -1;
+    margin-top: 20px;
+    font-size: 14px;
+    color: var(--soft-bg);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
 }
 
